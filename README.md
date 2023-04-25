@@ -174,13 +174,60 @@ https://engineeringxpert.com/wp-content/uploads/2022/04/26.png
 
 ## STM 32 CUBE PROGRAM :
 
+#include "main.h"
+#include"lcd.h"
+
+int main(void)
+{
+  
+  HAL_Init();
+
+  
+  MX_GPIO_Init();
+ 
+  Lcd_PortType ports[] = { GPIOA, GPIOA, GPIOA, GPIOA };
+  Lcd_PinType pins[] = {GPIO_PIN_3, GPIO_PIN_2, GPIO_PIN_1, GPIO_PIN_0};
+  Lcd_HandleTypeDef lcd;
+  lcd = Lcd_create(ports, pins, GPIOB, GPIO_PIN_0, GPIOB, GPIO_PIN_1, LCD_4_BIT_MODE);
+  Lcd_cursor(&lcd, 0,1);
+  Lcd_string(&lcd, "DEPT- AI&DS");
+ 
+  while (1)
+  {
+    
+  }
+ }
+    
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+
+}
+void Error_Handler(void)
+{
+ 
+  __disable_irq();
+  while (1)
+  {
+  }
+
+}
 
 
 
 ## Output screen shots of proteus  :
- 
+
+ ![Screenshot 2023-04-25 151704](https://user-images.githubusercontent.com/113497226/234240413-af8c79ae-9d8b-492a-bc24-6d30f53fdca3.png)
+
  
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
+ 
+ ![Screenshot 2023-04-25 160104](https://user-images.githubusercontent.com/113497226/234250772-25deb414-4f26-41dc-87d2-06055e3c1a5b.png)
+
  
  
 ## Result :
